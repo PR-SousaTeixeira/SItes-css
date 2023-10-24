@@ -3,72 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomba</title>
+    <title>Site para mobile</title>
     <style>
         body {
-            margin: 0;
-            overflow: hidden;
+            background-color: white;
+            color: black;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
         }
 
-        .falling-object {
-            width: 50px;
-            height: 150px;
-            background-color: black;
-            position: absolute;
-            border-radius: 50%;
-            animation: fall 5s ease-in;
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .item {
+                background-color: cyan;
+                width: 100%;
+                margin: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            h1, h2 {
+                background-color: cyan;
+                color: purple;
+                text-align: center;
+                padding: 5px;
+                text-decoration-line: underline;
+            }
+
+            h3 {
+                background-color: white;
+                color: orange;
+                text-align: center;
+                text-decoration-line: overline;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 22px;
+            }
+
+            nav {
+                background-color: blueviolet;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 300px;
+
+            }
+
+            nav ul li {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            nav ul a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+            }
+
+            nav ul a:hover {
+                background-color: purple;
+                color: green;
+            }
+
+            .produtos {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .item button {
+                padding: 5px 30px;
+                background-color: green;
+                color: black;
+                cursor: pointer;
+                display: block;
+                margin: auto;
+                transition: 0.3s;
+            }
+
+            .item button:hover {
+                transform: scale(1.5);
+            }
         }
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-                opacity: 0;
+        @media (min-width: 481px) {
+            body {
+              font-size: 18px;
+  font-weight: normal;
             }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
+            nav {
+  display: flex;
+  justify-content: center;
+  max-width: 300px;
+}
 
-        h1 {
-            font-size: 3rem;
-        }
+            .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+            .produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
 
-        .red-screen {
-            width: 100vw;
-    height: 100vh;
-            position: absolute;
-            animation: turnRed 0s linear 4s forwards;
-        }
 
-        @keyframes turnRed {
-            0% {
-
+            .item {
+                background-color: cyan;
+                width: 100%;
+                margin: 10px;
+                padding: 30px;
+                text-align: center;
             }
-            100% {
-                background-color: #ff0000;
+
+            h1, h2 {
+              font-size: 30px;
+  padding: 10px;
+                background-color: cyan;
+                color: purple;
+                text-align: center;
+                padding: 10px;
+                text-decoration-line: underline;
+            }
+            h3{
+              font-size: 26px;
+              background-color: white;
+                color: orange;
+                text-align: center;
+                text-decoration-line: overline;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+            .item button {
+              width: 20px;
+              height: 25px;
+                padding: 5px 30px;
+                background-color: green;
+                color: black;
+                cursor: pointer;
+                display: block;
+                margin: auto;
+                transition: 0.3s;
+            }
+
+            .item button:hover {
+                transform: scale(1.5);
             }
         }
     </style>
 </head>
 <body>
-    <article>
-        <div id="bomba"></div>
-        <div class="falling-object"></div>
-        <div class="red-screen"></div>
-        <h1>Titulo que vai desaparecer</h1>
-        <p>Texto que vai desaparecer</p>
-    </article>
+    <h1>Bem-vindo a uma loja de Instrumentos</h1>
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Search...">
+        <input type="submit" value="Search">
+        
+    </form>
+    <nav>
+        <ul>
+            <li><a href="#">Home page</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Conta</a></li>
+            <li><a href="#">Contatos</a></li>
+        </ul>
+    </nav>
+    <div class="produtos">
+        <h3>Guitarras e baixos</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGxy6Sf9rkljz-pe1alk6YEjEhf6MbjX1eQ&usqp=CAU" alt="Guitarras e baixos">
+        <button>Aderir ao carrinho</button>
+    </div>
+    <div class="produtos">
+        <h3>Pianos</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI2AFUES8IkhcPsWKXj-88Jr5TqSCFfbQicQ&usqp=CAU" alt="piano">
+        <button>Aderir ao carrinho</button>
+    </div>
+    <div class="produtos">
+        <h3>Instrumentos de Sopro</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaX57cMlkly1-_ipVTc06tdcryEgHUX-Jasw&usqp=CAU" alt="Instrumentos de sopro">
+        <button>Aderir ao carrinho</button>
+    </div>
+    <div class="produtos">
+        <h3>Baterias e percussão</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd6ho-yuIw6oe7L15Zdsy9Z2AgIiu5-1O3PQ&usqp=CAU" alt="Baterias e percussão">
+        <button>Aderir ao carrinho</button>
+    </div>
 </body>
 </html>
+
